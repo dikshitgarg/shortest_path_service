@@ -1,24 +1,15 @@
 app.controller("ShortestRouteController", function($scope,$ngBootbox,$http,$window,$location,$rootScope) {
 	
 	 var config = { headers : {  'Content-Type': 'application/json ;charset=utf-8;'   } }
-	  $scope.logout= function(){
-		  console.log($scope.shortest);
-		  
+	  $scope.findroute= function(){
 		  if(!($scope.shortest.number<=2) && ($scope.shortest.origin<$scope.shortest.number)){
 		  
 		  $http.post("http://localhost:8085/v1/shortest",$scope.shortest)
           .success(function (response){    
-        	  
         	  $scope.result=response.result;
-   
-      
           })
           .error(function (response){
-        	  
-        	  alert(response);
           });
-		  
-		  
 		  }
 		  else{
 			  $ngBootbox.alert("Please check your input:<br>" +
