@@ -15,12 +15,7 @@ public class ShortestPathController {
 	ShortestPathInput shortestPathInput =new ShortestPathInput();
 	@RequestMapping(value="/shortest" ,method=RequestMethod.POST , produces = { "application/json" })
 	public Shortest  shortest(@RequestBody Shortest shortest) {
-		System.out.println(shortest.getNumber());
-		System.out.println(shortest.getDistance());
-		System.out.println(shortest.getOrigin());
 		shortest.setResult(shortestPathInput.cal(shortest.getNumber(), shortest.getDistance(), shortest.getOrigin()));
-		
-		
 		return shortest;
 	}
 
