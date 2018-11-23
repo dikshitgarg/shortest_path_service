@@ -1,3 +1,3 @@
 
-var app = angular.module("ShortestRouteApp", ["ngRoute","ngBootbox"]);
+var app = angular.module("ShortestRouteApp", ["ngTable","ngRoute","ngBootbox"]);
 
