@@ -1,4 +1,4 @@
-app.controller("ShortestRouteController", function($scope,$ngBootbox,$http,$window,$location,$rootScope) {
+app.controller("ShortestRouteController", function($scope,$ngBootbox,$http,$window,$location,$rootScope,NgTableParams) {
 	
 	$scope.demo="Input:\n\n" +
 			"Enter number of cities\n" +
@@ -31,6 +31,32 @@ app.controller("ShortestRouteController", function($scope,$ngBootbox,$http,$wind
 			  		"2.Origin city starts from 0 so last city should not be equal to the number of cities");
 
 		  }
+		  
+
+      };
+      
+      
+      $scope.save= function(){
+    	  $scope.shortest.result=$scope.result;
+		  
+		  $http.post("http://localhost:8085/v1/save",$scope.shortest)
+          .success(function (response){    
+        	  $ngBootbox.alert("Saved");
+          })
+          .error(function (response){
+          });
+      };
+      
+      $scope.getData= function(){
+		  $http.get("http://localhost:8085/v1/values")
+          .success(function (response){    
+        	  $scope.data = response;
+        	  console.log($scope.previousData);
+        	  $scope.tableParams = new NgTableParams({}, {counts: [], dataset: $scope.data});
+          })
+          .error(function (response){
+          });
+		  
 		  
 
       };
