@@ -1,16 +1,6 @@
 
 package com.telstra.shortestpath.main;
 
-/**
- * This is a java file created for TAAS
- * 
- * Copyright (C) 2018-2019 Infosys
- * 
- * @author infosys
- * 
- *
- * 
- */ 
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
