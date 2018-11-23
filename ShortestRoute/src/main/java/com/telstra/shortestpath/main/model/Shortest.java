@@ -1,7 +1,14 @@
 package com.telstra.shortestpath.main.model;
 
-public class Shortest {
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Shortest")
+public class Shortest {
+	
+	@Id
+	private ObjectId id;
 	private String number;
 	private String distance;
 	private String origin;
